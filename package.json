@@ -4,6 +4,7 @@
   "description": "Boiler plate for express applications with user login and authentication",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,17 +14,12 @@
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "2.4.3",
-    "config": "3.2.2",
-    "connect-flash": "0.1.1",
-    "dotenv": "^8.1.0",
+    "dotenv": "8.1.0",
     "express": "4.17.1",
-    "express-session": "1.16.2",
     "express-validator": "6.1.1",
     "helmet": "3.20.0",
     "jsonwebtoken": "8.5.1",
-    "mongoose": "5.6.10",
-    "passport": "0.4.0",
-    "passport-local": "1.0.0"
+    "mongoose": "5.6.10"
   },
   "devDependencies": {
     "concurrently": "4.1.2",
