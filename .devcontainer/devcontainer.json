@@ -1,0 +1,12 @@
+{
+	"name": "Node.js (latest LTS) & TypeScript",
+	"dockerFile": "Dockerfile",
+	"extensions": [
+		"ms-vscode.vscode-typescript-tslint-plugin",
+		"esbenp.prettier-vscode",
+		"coenraads.bracket-pair-colorizer",
+		"dsznajder.es7-react-js-snippets"
+	],
+	"shutdownAction": "stopContainer",
+	"runArgs": ["--network","host"]
+}
