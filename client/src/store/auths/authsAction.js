@@ -11,7 +11,7 @@ export const register = formData => async dispatch => {
     }
   };
   try {
-    const res = await axios.post("/api/vs/users", formData, config);
+    const res = await axios.post("/api/v1/users", formData, config);
     dispatch({
       type: REGISTER_SUCCESS,
       payload: res.data
@@ -26,7 +26,6 @@ export const register = formData => async dispatch => {
 // Login User
 export const login = formData => async dispatch => {
   if (sessionStorage.token) {
-    authenticate()
     setAuthToken(sessionStorage.token);
   }
   const config = {

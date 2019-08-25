@@ -5,7 +5,12 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm start\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engine": {
+    "node":"10.16.3"
   },
   "keywords": [
     "boilerplate"
