@@ -5,9 +5,14 @@ const path = require('path')
 const helmet = require('helmet')
 const { connectDB, disconnectDB } = require('./db.js')
 const dotenv = require('dotenv')
-
+const morgan = require('morgan')
 // Load env
 dotenv.config({path:'./.env'})
+
+//Dev logs to verify that routes are being hit
+if (process.env.NODE_ENV === 'development') {
+    app.use(morgan('dev'))
+}
 
 // Helmet Middleware
 app.use(helmet())
