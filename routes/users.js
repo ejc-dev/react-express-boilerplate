@@ -4,7 +4,15 @@ const User = require('../models/User')
 const jwt = require('jsonwebtoken')
 const { check, validationResult } = require('express-validator')
 const bcrypt = require('bcryptjs')
+const passport = require("passport")
 
+passport.use(User.createStrategy())
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+/**
+ * TODO: Implement Passport authentication strategy
+ */
 // @route   POST api/users
 // @desc    Register a user
 // @access  Public
@@ -22,7 +30,6 @@ async (req,res) => {
     }
     const { firstName, lastName, userName, email, password } = req.body
     try {
-
         let user = await User.findOne({ email })
         if(user) {
             return res.status(400).json({msg:"Email already registered"})
@@ -36,7 +43,7 @@ async (req,res) => {
         const salt = await bcrypt.genSalt(10)
         const hashed_pw = await bcrypt.hash(password,salt)
         user = new User({
-            firstName, lastName, userName, email, password: hashed_pw
+            firstName, lastName, userName, email, password: hashed_pw  
         })
         await user.save()
         const payload = {

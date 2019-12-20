@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+mongoose.set("useCreateIndex",true);
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGOURI, {

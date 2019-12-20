@@ -5,8 +5,19 @@ const path = require('path')
 const helmet = require('helmet')
 const { connectDB, disconnectDB } = require('./db.js')
 const dotenv = require('dotenv')
+const session = require("express-session")
+const passport = require("passport")
 // Load env
 dotenv.config({path:'./.env'})
+
+app.use(session({
+    secret: process.env.SECRET,
+    resave:false,
+    saveUninitialized:false
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Helmet Middleware
 app.use(helmet())
